@@ -67,6 +67,7 @@ h5{
 p{
     font-size: 14pt;
     font-weight: bold;
+    text-align: justify;
 }
 
 a{
@@ -191,6 +192,7 @@ nav a{
 
 main{
     padding: 2em;
+    max-width: 80%;
 }
 
 h1 + hr{
