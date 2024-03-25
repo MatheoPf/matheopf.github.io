@@ -1,0 +1,1056 @@
+/*
+SOMMAIRE
+
+1 - Body
+2 - Titres
+3 - Définitions des différents blocs (article, section, nav...)
+4 - Nav
+5 - Article
+6 - Section
+7 - Footer
+8 - Media
+*/
+
+@font-face {
+    font-family: 'Overpass';
+    src: url('fonts/overpass-bold-webfont.woff2') format('woff2'),
+         url('fonts/overpass-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/****************************************
+*               1 - Body                *
+****************************************/
+body {
+    margin: 0;
+    background-color: #444;
+    color: white;
+    font-family: Roboto, Helvetica, sans-serif;
+    text-align: center;
+    
+    display: flex;
+    -webkit-font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar {
+    width: 0.1em;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ff122a;
+    outline: 1px solid #ff122a;
+}
+
+/****************************************
+*             2 - Titres                *
+****************************************/
+h1{
+    text-align: center;
+    font-family: "Overpass", sans-serif;
+    text-transform: uppercase;
+    font-size:96px;
+    
+    font-weight: 700;
+    padding-top: 35px;
+    margin: 0;
+}
+
+h2{
+    text-align: center;
+    font-family: "Overpass", sans-serif;
+    font-size: 64px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* autre Sous titre */
+blockquote{
+    height: fit-content;
+    text-align: center;
+    font-family: "Overpass", sans-serif;
+    font-size: 30px;
+    
+}
+
+h3 {
+    font-size: 48px;
+    margin: 0;
+}
+
+h4 {
+    font-size: 32px;
+    color: #EEE;
+    margin: 0;
+}
+
+p {
+    text-align: justify;
+}
+
+a:link, a:hover, a:active, a:visited{
+    color: white;
+}
+
+/****************************************
+*       3 - Définition des blocs        *
+****************************************/
+nav, article, section, footer {
+    background-color: #333;
+    border-radius: 5px;
+    border-color: #ff122a;
+    border-width: 1px;
+    border-style: solid;
+}
+
+main {
+    margin-left: 140px;
+}
+
+/* ne touche que le header de la page et pas les autres (ex: header dans article)*/
+nav + header {
+    position: fixed;
+    margin-left: 70px;
+    z-index: 3;
+}
+
+hr {
+    width: 43%;
+    margin: 2em auto;
+}
+
+main > header{
+    padding-top: 56px;
+    margin-bottom: 43px;
+}
+
+main > header div{  /***l'ensemble affiche (poster + interdiction -16)**/
+    position: relative; 
+}
+
+main > header div img:first-child{ /***poster**/
+    position: relative;
+    z-index: 0;
+    
+    width: 85%;
+    height: auto;
+    left: 0;
+    top: 0;
+    box-shadow: 15px 15px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+main > header div img:nth-child(2){ /*** interdiction -16ans**/
+    position: absolute;
+    right: 7%;
+    width: 7%;
+    height: 15%;
+    z-index: 1;
+}
+
+/* index.html : article avec bande annonce */
+main>header + section{ 
+    text-align: justify;
+    margin-top: 0;
+    min-height: 232px;
+    min-width: 470px;
+}
+
+main>header + section iframe {
+    float: left;
+    margin-right: 1em;
+}
+
+main>header + section p{
+    clear: right;
+    margin: 0;
+    line-height: 1.5em;
+}
+
+/* index.html : divs dans main */
+main > div{ /**conteneur des deux lignes**/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+main > div > div{ /***chacune des lignes**/
+    display: flex;
+    flex-direction: row;
+    margin-top: 43px;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+/**titre section information et titre section casting avec la barre en dessous (page acceuil)*/
+
+main > div div:first-child section:first-child div:first-child, main > div div:first-child section:last-child div:first-child{
+    width: fit-content;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+}
+
+/** section information (page accueil) */
+
+main > div  div:first-child section:first-child{ 
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 580px;
+    min-width: 300px;
+    padding-left: 43px;
+    padding-right: 25px;
+    flex: 2;
+    align-items: stretch;
+    align-self: flex-start;
+}
+
+main > div div:first-child section:first-child div:nth-child(2){ /** bloc d'un ensemble de paragraphe alant de "genre" à "prix gagnés : ici"***/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+main > div div:first-child section:first-child div:last-child{ /** bloc d'un ensemble de paragraphe allant de "- presse" à "23 705 notes)" ***/
+    text-indent: 25px;
+}
+
+main > div div:first-child section:first-child p{
+    margin-top: 28px;
+    margin-bottom: 0;
+}
+
+main > div div:first-child section:first-child div:last-child p{ /** chacun des parargraphe "- presse.." et "- spectateur.."***/
+    margin: 0;
+}
+
+/******** section casting (page d'accueil) *******/
+
+
+main > div div:first-child section:last-child{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 45px;
+    
+    margin-top: 0;
+    margin-left: 43px;
+    
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+
+
+main > div div:first-child section:last-child article{ /***ensemble image + nom acteur****/
+    display: flex;
+}
+
+main > div div:first-child section:last-child article p{ /**nom des acteurs***/
+    display: flex;
+    align-self: center;
+
+    width: 223px;
+    height: 65px;
+    text-align: center;
+}
+
+main > div div:first-child section:last-child article img{ /***images des acteurs**/
+    margin-right: 3vw;
+    border-radius: 64.015px;
+    box-shadow: 15px 15px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+main > div div:first-child section:last-child div article:nth-child(2){ /** ensemble image + nom acteur de paul anderson**/
+    align-self: end;
+}
+
+main > div div:first-child section:last-child div article:nth-child(2) img{ /*** image paul anderson**/
+    order: 1;
+    margin-right: 0;
+    margin-left: 3vw;
+}
+
+
+main > div div:first-child section:last-child div:last-child{ /** conteneur des 3 ensembles (rappel : un ensemble = image + nom acteur)**/
+    display: flex;
+    flex-direction: column;
+}
+
+main > div div:first-child section:last-child div:last-child article{ /** conteneur des 3 ensembles (rappel : un ensemble = image + nom acteur)**/
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/********************** chaque blocs critiques (page accueil)************************/
+main > div  div:last-child section, main > section:last-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > div  div:last-child p , main > section:last-child p{
+    align-self: start;
+    margin-bottom: 0;
+}
+
+main > div  div:last-child section figure img {
+    margin: 0 0.5em;
+}
+
+/*** section inrockuptible (page accueil)***/
+main > div div:last-child section:first-child{
+    margin-right: 43px;
+    max-width: 810px;
+    min-width: 300px;
+    flex: 2;
+}
+
+
+/*********************************/
+
+/*** section critictoo (page accueil)****/
+
+main > div div:last-child section:last-child{
+    flex: 2;
+    min-width: 300px;
+}
+
+/***********************************/
+
+main > div div:last-child section div{ /***ensemble paragraphe + "source :" (permet de faire l'écart entre les deux et que le mot "source :" se mette en bas de section)***/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/****************************************
+*               4 - Nav                 *
+****************************************/
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  
+    border-right: 1.5px solid #FF122A;
+    border-left: none;
+    border-top: none;
+    border-radius: 0;
+  
+    width: 70px;
+    /* Largeur initiale */
+    height: 100%;
+    transition: width 0.5s;
+    /* Ajoute une transition pour une animation fluide */
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+nav button {
+    background: none;
+    border: none;
+    align-self: center;
+    margin: 28px 0 0;
+}
+  
+nav img:not(button img) {
+    width: 25px;
+    height: 25px;
+    display: inline;
+}
+  
+nav a {
+    margin: 25px 0;
+    text-decoration: none;
+}
+  
+nav a:nth-child(2) {
+    margin-top: 50px;
+}
+  
+a, button {
+    cursor: pointer;
+}
+  
+a span {
+    display: none;
+    font-size: 25px;
+    font-weight: bold;
+    /* font-family: overpass; */
+    align-self: center;
+}
+  
+/* button + hr {
+    display: none;
+} */
+  
+nav a + hr {
+    width: 255px;
+    display: none;
+    color: #444444;
+}
+  
+
+
+/****************************************
+*             5 - Article               *
+****************************************/
+article {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    margin: 3em 1em;
+    padding: 1em;
+    box-shadow: 5px 5px 25px #333;
+}
+
+/* Affiche de la saison */
+article > img {
+    margin-right: 1em;
+}
+
+/* titre et notes de la saison */
+article header {
+    display: flex;
+    flex-direction: row;
+}
+
+/* titre de la saison */
+article header h3 {
+    align-self: center;
+}
+
+/* Tout l'article sans l'affiche */
+article > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* bloc contenant les etoiles et le nombre de notant */
+figure {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* etoile des notes */
+figure > img {
+    margin: 0.5em;
+}
+
+/* nombre de notant */
+figcaption {
+    color: #EDEDED;
+}
+
+/* Bouton En savoir plus */
+article a {
+    background-color: #ff122a;
+    padding: 0.75em 0.25em;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    margin: 1em;
+    width: fit-content;
+    border-radius: 5px;
+    align-self: flex-end;
+}
+
+article.droite img {
+    order: 3;
+}
+
+article.droite h3, article.droite  p {
+    text-align: right;
+}
+
+.cache1, .cache1 + button,
+.cache2, .cache2 + button,
+.cache3, .cache3 + button,
+.cache4, .cache4 + button{
+  display: none;
+}
+
+
+button {
+    background-color: #ff122a;
+    padding: 0.75em 0.25em;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    margin: 1em;
+    width: fit-content;
+    border-radius: 5px;
+    align-self: flex-end;
+  }
+
+/****************************************
+*              6 - Section              *
+****************************************/
+
+section {
+    background-color: #333;
+    margin: 3em 1em;
+    padding: 1em;
+}
+
+/* Titre de la section */
+section h2 {
+    text-align: center;
+}
+
+/* article dans section */
+section article {
+    border: none;
+}
+
+section img {
+    border-radius: 4em;
+    margin: 0.5em 2em;
+}
+
+/* Gère l'interview */
+section + section {
+    text-align: left;
+}
+
+section + section img {
+    float: right;
+}
+
+/* Presse */
+section.presse > article > div {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding-bottom: 0.5em;
+}
+
+section.presse > article {
+    display: flex;
+    flex-direction: column;
+}
+
+section.presse img {
+    border-radius: 20px;
+    margin-left: 0;
+}
+
+a + p {
+    display: none;
+}
+
+/* Section saison intro */
+
+section.saison-intro {
+    display: block;
+    text-align: left;
+}
+
+section.saison-intro p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+section.saison-intro > div:first-of-type {
+    text-align: center;
+}
+
+section.saison-intro > img {
+    float: left;
+    border-radius: 0;
+    margin: 0 20px 0 0;
+}
+
+section.saison-intro h1 {
+    font-size: 96px;
+    font-weight: bold;
+    margin: 5px 20px;
+}
+
+section.saison-intro ul {
+    font-size: 20px;
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+section.saison-intro li {
+    margin-left: 42%;
+}
+
+section.text-center + section img {
+    float: left;
+    border-radius: 5px;
+}
+
+/* section acteurs carré saisons */
+.acteurs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.acteurs figure {
+    height: auto;
+    width: 42%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    text-align: center; 
+}
+
+div.acteurs figure > img {
+    margin: 0.5em; 
+    border-radius: 60px;
+}
+
+div.acteurs figcaption > span {
+    font-size: 24px;           /* police premiere ligne de la legende */
+}
+
+div.acteurs br + span {
+    font-size: 20px;            /*deuxieme ligne*/
+}
+
+.text-center, .text-center p {
+    text-align: center;
+}
+
+/****************************************
+*              7 - Footer               *
+****************************************/
+footer {
+    margin: 3em 1em;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    display: inline-block;
+    text-align: right;
+    font-size: 20px;
+}
+
+footer p:last-child {
+    color: #DDD;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+
+
+
+/****************************************
+*              8 - Media                *
+****************************************/
+
+@media screen and (width < 1110px) {
+    /* body */
+    body {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 6em;
+    }
+
+    body > header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    main {
+        margin: auto
+    }
+
+    main > header {
+        padding-top: 0;
+    }
+
+    /* titres */
+    h1 {
+        font-size: 48px;
+        margin: 0 0.5em;
+        letter-spacing: 1px;
+    }
+
+    /* fait disparaitre les sous-titres */
+    main > h2 {
+        display: none;
+    }
+
+    h2,
+    h3,
+    h4 {
+        text-align: center;
+    }
+
+    section h2 {
+        font-size: 36px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 32px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5em;
+    }
+
+    hr {
+        width: 70%;
+    }
+
+    /* nav */
+    nav {
+        width: 100%;
+        height: 75px;
+        z-index: 2;
+        border-bottom: 1px solid #ff122a;
+        border-radius: 0;
+    }
+
+    nav img {
+        display: none;
+    }
+
+    button hr {
+        width: 410px;
+        display: none;
+        color: #444444;
+    }
+
+    /* laisse le menu burguer affiché */
+    nav button:first-child {
+        display: inline;
+        align-self: flex-start;
+        margin-left: 1em;
+        z-index: 3;
+        margin-top: 1.5em;
+    }
+
+    nav button:first-child img {
+        display: inline;
+    }
+
+    nav img:not(button img) {
+        display: none;
+    }
+
+
+    /* logo */
+    body > header {
+        align-self: flex-end;
+    }
+
+    /* affiche acceuil */
+    main > header div img:first-child{ /***poster**/
+        position: relative;
+        z-index: 0;
+        
+        width: 90%;
+        height: auto;
+        left: 0;
+        top: 0;
+        box-shadow: 15px 15px 20px 0px rgba(0, 0, 0, 0.25);
+    }
+    
+    main > header div img:nth-child(2){ /*** interdiction -16ans**/
+        position: absolute;
+        right: 5%;
+        width: 7%;
+        height: 15%;
+        z-index: 1;
+    }
+
+    section {
+        margin: 2em 1em;
+    }
+
+    /* article */
+    article {
+        flex-direction: column;
+    }
+
+    /* affiche de la saison */
+    article > img {
+        display: none;
+    }
+
+    article header {
+        flex-direction: column;
+    }
+
+    article header h3 {
+        font-size: 32px;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+
+    article h4 {
+        display: none;
+    }
+
+    article figure {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    article figure div {
+        margin-bottom: 1em;
+        align-self: center;
+        align-content: space-between;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    article figure div img {
+        margin: 0 0.5em;
+    }
+
+    article figure figcaption {
+        align-self: center;
+    }
+
+    article a, button {
+        align-self: center;
+    }
+
+    article.droite h3 {
+        text-align: center;
+    }
+
+    article.droite p {
+        text-align: justify;
+    }
+
+    .presse a {
+        align-self: center;
+    }
+
+    iframe {
+        width: 50%;
+        height: auto;
+    }
+
+    main>header + section {
+        text-indent: 40px;
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    main>header + section iframe {
+        align-self: center;
+        width:70%; 
+        height: auto;
+        flex-shrink: 2;
+        float: none;
+        
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    /******** ensemble bloc information + casting et bloc inrockuptible + critictoo ********/
+
+    main > div > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+    }
+    /******************************************************************************/
+
+    /** section information de la page accueil */
+
+    main > div  div:first-child section:first-child{
+        max-width: none;
+        margin-bottom: 43px;
+        align-self: center;
+    }
+    /******************************************/
+
+    /******* section casting *******/
+    main > div div:first-child section:last-child{
+        align-items: center;
+        width: 76%;
+        margin: 0 1em 2em 1em;
+    }
+    /********************************/
+
+    /******** les images de la section casting  ******/
+    main > div div:first-child section:last-child img{
+        display: none;
+    }
+    /*************************************************/
+
+    /*** section inrockuptible ***/
+    main > div div:last-child section:first-child{
+        margin: 0 1em;
+        max-width: none;
+    }
+
+    main > div div:last-child section:first-child img{
+        width: 30px;
+        height: auto;
+    }
+    /********************************/
+
+    /*** section critictoo ****/
+
+    main > div div:last-child section:last-child{
+        display: none;
+    }
+    /***************************/
+    
+    /***** section télé loisir*****/
+    main > div+section{
+        display: none;
+    } 
+    /*******************************/
+
+    section > h3 {
+        margin-top: 1em;
+    }
+
+    h3 + p {
+        margin-top: 2em;
+    }
+
+    /* fait disparaitre: 
+        - les logo de presse 
+        - les dates d anniversaires des acteur
+        - la photo de steven knight dans l interview
+    */
+    section > article > div > img,
+    h3 + h4,
+    h2 + img {
+        display: none;
+    }
+
+    h4 + h4,
+    h2+hr,
+    hr,
+    hr+article+hr {
+        display: block;
+    }
+
+    /* SAISON */
+    /* intro saison */
+    section.saison-intro { 
+        display: flex;
+        flex-direction: column;
+    }
+
+    section.saison-intro > div {
+        order:1;
+    }
+
+    blockquote{
+        font-size: 20px;
+    }
+
+    section.saison-intro > img {
+        order: 2;
+        align-self: center;
+        
+        width: 50%;
+        height: auto;
+        margin: 0;
+    }
+    
+    section.saison-intro div + div {
+        order: 3;
+        text-align: left;
+        font-size: 20px;
+        margin-left: 40px;
+    }
+
+    section.saison-intro h1 {
+        font-size: 48px;
+        margin: 0 0.5em;
+        letter-spacing: 1px;
+    }
+
+    section.saison-intro p {
+        font-size: 16px;
+    }
+    
+    section.saison-intro ul {
+        font-size: 16px;
+    }
+
+    section.saison-intro li {
+        margin-left: 0;
+        font-size: 16px;
+    }
+
+    .text-center p{
+        text-align: justify;
+        text-indent: 1em;
+    }
+
+    .text-center:last-child{
+        text-align: justify;
+    }
+
+    section.text-center + section article {
+        margin: 0;
+    }
+
+    div.acteurs {
+        justify-content: center;
+    }
+
+    div.acteurs img {
+        display: none;  
+    }
+
+    div.acteurs figure {
+        width: 100%;
+        margin-bottom: 3em;
+    }
+
+    div.acteurs figure span:first-child {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    main > div div:first-child section:last-child article p {
+        width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer p:last-child {
+        text-align: center;
+    }
+}
