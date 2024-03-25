@@ -165,7 +165,7 @@ h3 + h4 {
 
 nav {
     float: right;
-    margin: -2em -2em;
+    margin: -2em -2em -2em 20em;
     border: 1px solid var(--light-gray);
     border-radius: 0 35px;
     background-color: var(--lightdark-gray);
@@ -210,19 +210,16 @@ h1 + hr + p {
 
 
 /*********************************\
-             Projet
+        Présentation Projet
 \*********************************/
 
-h2 + div {
+h2 + div, .projet article {
     background-color: var(--light-gray);
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 1em 1.5em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1em auto;
     border-radius: 20px;
     max-width: 500px;
 }
@@ -241,11 +238,51 @@ div p {
     margin-left: 0.8em;
 }
 
-p + a {
+p + a, figure + a {
     background-color: var(--dark-red);
     font-weight: bold;
     padding: 0.5em;
     position: relative;
     float: right;
     border-radius: 10px 0;
+}
+
+/*********************************\
+         Projet Perso et Univ
+\*********************************/
+
+.projet article {
+    margin: 2em auto;
+    max-width: 900px;
+    height: auto;
+    flex-direction: column;
+}
+
+figure figure {
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+}
+
+figure img {
+    width: 300px;
+    height: auto;
+    background: none;
+    border-radius: 20px;
+}
+
+figure img:hover {
+    transform: scale(2);
+}
+
+figure + a {
+    margin-top: 2em;
+    font-size: large;
+}
+
+.fig_row {
+    img + img {
+        height: 300px;
+        width: auto;
+    }
 }
