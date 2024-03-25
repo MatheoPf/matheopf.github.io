@@ -108,6 +108,7 @@ header{
     height: 700px;
     padding-top: 2em;
     margin-right: 2em;
+    margin-left: auto;
 }
 
 header > img {
@@ -193,6 +194,7 @@ nav a{
 main{
     padding: 2em;
     max-width: 1300px;
+    margin: auto auto auto 0;
 }
 
 h1 + hr{
