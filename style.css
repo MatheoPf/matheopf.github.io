@@ -249,6 +249,28 @@ p + a, figure + a {
     border-radius: 10px 0;
 }
 
+
+/*********************************\
+             Competences
+\*********************************/
+
+.competences {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.competences > article {
+    background-color: var(--light-gray);
+    border-radius: 20px 0;
+    width: 300px;
+    margin: 2em;
+    padding: 1em;
+}
+
+
+
 /*********************************\
          Projet Perso et Univ
 \*********************************/
@@ -274,7 +296,7 @@ figure img {
 }
 
 figure img:hover {
-    transform: scale(2);
+    transform: scale(1.5);
 }
 
 figure + a {
