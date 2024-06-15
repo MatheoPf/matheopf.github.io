@@ -305,6 +305,7 @@ p + a, figure + a, .lienDiplome > a {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    
 }
 
 .competences > article {
@@ -313,10 +314,25 @@ p + a, figure + a, .lienDiplome > a {
     width: 300px;
     margin: 2em;
     padding: 1em;
+    height: 500px;
 }
 
 .competences p {
     text-align:center;
+    position: relative;
+    top: 1em;
+}
+
+.competences a {
+    display: block;
+    background-color: var(--dark-red);
+    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin-top: 1em;
+    position: relative;
+    bottom: 0;
+    text-align: center;
 }
 
 
@@ -346,7 +362,7 @@ figure img {
 }
 
 figure img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 figure + a {
@@ -355,8 +371,15 @@ figure + a {
 }
 
 .fig_row {
-    img + img {
+    img {
         height: 300px;
+        width: auto;
+    }
+}
+
+.sous_fig_row {
+    img {
+        height: 200px;
         width: auto;
     }
 }
