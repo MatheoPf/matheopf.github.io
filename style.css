@@ -315,12 +315,21 @@ p + a, figure + a, .lienDiplome > a {
     margin: 2em;
     padding: 1em;
     height: 500px;
+    position: relative;
 }
 
 .competences p {
     text-align:center;
-    position: relative;
-    top: 1em;
+    position: absolute;
+    top: 7em;
+}
+
+.competences div {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 1em;
+    left: 10%;
+    right: 10%;
 }
 
 .competences a {
@@ -330,8 +339,6 @@ p + a, figure + a, .lienDiplome > a {
     padding: 0.5em;
     border-radius: 10px;
     margin-top: 1em;
-    position: relative;
-    bottom: 0;
     text-align: center;
 }
 
@@ -368,6 +375,10 @@ figure img:hover {
 figure + a {
     margin-top: 2em;
     font-size: large;
+}
+
+figure figcaption {
+    margin: 1em 0 2em;
 }
 
 .fig_row {
