@@ -1,0 +1,51 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 0.5em 1em;
+    color: black;
+}
+
+hr {
+    height: 2px;
+    margin: 0 2em;
+    background-color: #011367;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1em;
+}
+
+a, #envoyer {
+    text-align: center;
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: #011367;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em;
+    font-size: 12pt;
+    font-weight: 700;
+    display: flex;
+    justify-self: center;
+}
+
+form article{
+    display: flex;
+    margin: 1em;
+    align-items: baseline;
+}
+
+input {
+    margin-left: 1em;
+}
+
+input + a {
+    left: 1em;
+    justify-self: right;
+}
